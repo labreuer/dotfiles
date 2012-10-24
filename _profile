@@ -1,0 +1,17 @@
+bind 'set completion-ignore-case on'
+
+# MacPorts Installer addition on 2012-09-17_at_15:21:28: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin:/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# allow ctrl-s for forward command search (compared to ctrl-r)
+stty stop undef
+
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+
+type tac 1>/dev/null 2>&1 || alias tac='tail -r'
+# allow this to be called thrice (e.g. you clobbered the clipboard and wish to
+# copy the last command (that isn't invoking 'cpl' itself) again
+alias cpl='history 4 | tac | grep -vPm 1 "^[ 0-9]*\bcpl\b" | pbcopy'

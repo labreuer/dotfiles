@@ -1,0 +1,27 @@
+[user]
+	name = Luke Breuer
+	email = labreuer@breuer.com
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgall = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+glog = !git --no-pager log --graph --oneline --decorate
+log-graph = log --all --graph --decorate
+log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+log-timeline = log --format='%h %an %ar - %s'
+log-local = log --oneline origin..HEAD
+log-fetched = log --oneline HEAD..origin/master
+last = !git --no-pager log-timeline -5
+conflicts = !git ls-files -u | cut -f 2 | sort -u
+
+[diff]
+	tool = diffmerge
+
+[difftool]
+	prompt = false
+	
+[difftool "diffmerge"]
+    cmd = diffmerge $LOCAL $REMOTE
+
+[color]
+	ui = auto

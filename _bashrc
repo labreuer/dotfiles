@@ -1,0 +1,47 @@
+export CLICOLOR=1
+export LESS="-R"
+# export PAGER=/opt/local/bin/vimpager
+# alias less=$PAGER
+# alias zless=$PAGER
+
+red='\e[0;31m'
+RED='\e[1;31m'
+blue='\e[0;34m'
+BLUE='\e[1;34m'
+cyan='\e[0;36m'
+CYAN='\e[1;36m'
+NC='\e[0m'              # No Color
+
+#RET_VALUE='$(if [[ $RET = 0 ]]; then echo -ne "$NC"; else echo -ne "$RED"; fi;)'
+export PROMPT_COMMAND='RET=$?;echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+#export PROMPT_COMMAND='RET=$?;echo -ne "\033]0;${USER}@${HOSTNAME%%.*}: ${PWD/#$HOME/~}\007"'
+#export PS1="$RET\W$ "
+
+
+GREEN='\e[0;32m'
+#PROMPT_COMMAND='RET=$?;'
+RET_DISP='$( if [[ $RET != 0 ]]; then echo -ne "\[\e[0;31m\]$RET\[\e[0m\] "; fi; )'
+#RET_DISP='$( if [[ $RET != 0 ]]; then echo -ne "\[$red\]$RET\[$nc\] "; fi; )'
+export PS1="$RET_DISP\W$ "
+
+export GREP_OPTIONS='--color=auto' 
+
+alias ve='/opt/local/bin/virtualenv-2.7'
+alias vim='/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim'
+alias ssh_work='ssh labreuer@gw2.ashimagroup.net -p 1023'
+alias ssh_lin='ssh labreuer@lin'
+alias ssh_irc='ssh_lin -t "cd irclogs; bash"'
+alias cd..="cd .."
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias l="ls -lh"
+alias lp="ls -p"
+alias mkdir='mkdir -p'
+alias t="open -t"
+
+alias +='pushd'
+alias -- -='popd'
+alias ?='dirs -v'
+
+alias dm='/Applications/DiffMerge.app/Contents/MacOS/DiffMerge'
