@@ -25,3 +25,5 @@ conflicts = !git ls-files -u | cut -f 2 | sort -u
 
 [color]
 	ui = auto
+[core]
+	excludesfile = /Users/labreuer/.gitignore
