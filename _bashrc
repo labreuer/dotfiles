@@ -37,6 +37,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias l="ls -lh"
 alias lp="ls -p"
+alias lf='ls -1Ap | grep -v /\$'
 alias mkdir='mkdir -p'
 alias t="open -t"
 
