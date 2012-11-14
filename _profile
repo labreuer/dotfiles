@@ -1,11 +1,10 @@
 bind 'set completion-ignore-case on'
-
-# MacPorts Installer addition on 2012-09-17_at_15:21:28: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin:/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # allow ctrl-s for forward command search (compared to ctrl-r)
 stty stop undef
+shopt -s histappend
+
+# /opt/local is MacPorts
+export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
