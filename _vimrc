@@ -99,6 +99,8 @@ endif
 
 " http://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
 nnoremap <CR> :noh<CR><CR>
+inoremap s <ESC>:w<CR>a
+nnoremap s :w<CR>
 
 au FileType sql setl tabstop=4 shiftwidth=4 softtabstop=4
 
