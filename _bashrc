@@ -45,4 +45,4 @@ alias +='pushd'
 alias -- -='popd'
 alias ?='dirs -v'
 
-alias dm='/Applications/DiffMerge.app/Contents/MacOS/DiffMerge'
+alias dm='/Applications/DiffMerge.app/Contents/MacOS/DiffMerge -nosplash'
