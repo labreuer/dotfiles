@@ -1,4 +1,5 @@
 set clipboard=unnamed
+set backupdir=~/.vim/backup
 
 " An example for a vimrc file.
 "
