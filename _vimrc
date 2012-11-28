@@ -103,10 +103,20 @@ nnoremap <CR> :noh<CR><CR>
 inoremap s <ESC>:w<CR>a
 nnoremap s :w<CR>
 
+au BufNewFile,BufRead *.pde set filetype=cpp
+
 au FileType sql setl tabstop=4 shiftwidth=4 softtabstop=4
 
 au FileType python setl shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 autoindent
 "au BufNewFile,BufRead *.pgsql set filetype=plpgsql
+"augroup mkd
+"  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
+"augroup END
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+    au Filetype ghmarkdown setl shiftwidth=4 tabstop=4 smarttab expandtab
+augroup END
 
 call pathogen#infect()
 call pathogen#helptags()
