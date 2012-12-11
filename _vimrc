@@ -104,6 +104,7 @@ inoremap s <ESC>:w<CR>a
 nnoremap s :w<CR>
 
 au BufNewFile,BufRead *.pde set filetype=cpp
+au BufNewFile,BufRead *.ino set filetype=cpp
 
 au FileType sql setl tabstop=4 shiftwidth=4 softtabstop=4
 
