@@ -14,3 +14,5 @@ type tac 1>/dev/null 2>&1 || alias tac='tail -r'
 # allow this to be called thrice (e.g. you clobbered the clipboard and wish to
 # copy the last command (that isn't invoking 'cpl' itself) again
 alias cpl='history 4 | tac | grep -vPm 1 "^[ 0-9]*\bcpl\b" | sed -E "s/^[ ]+[0-9]+[ ]+//" | pbcopy'
+alias pwdc='pwd | tr -d "\n" | pbcopy'
+alias cdc='cd `pbpaste`'
