@@ -4,10 +4,15 @@ stty stop undef
 shopt -s histappend
 
 # /opt/local is MacPorts
-export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/Current/bin:/opt/local/bin:/opt/local/sbin:$PATH:~/Documents/arm/bin
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
+fi
+
+# curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
 fi
 
 type tac 1>/dev/null 2>&1 || alias tac='tail -r'
