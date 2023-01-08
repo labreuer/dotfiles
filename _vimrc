@@ -1,6 +1,9 @@
 set clipboard=unnamed
 set backupdir=~/.vim/backup
 
+" mkdir -p $HOME/.vim/swapfiles  # this dir must exist vi does not create it
+set directory=$HOME/.vim/swapfiles//
+
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -70,7 +73,7 @@ if has("autocmd")
   au!
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+  " autocmd FileType text setlocal textwidth=78
 
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
@@ -107,6 +110,7 @@ au BufNewFile,BufRead *.pde set filetype=cpp
 au BufNewFile,BufRead *.ino set filetype=cpp
 
 au FileType sql setl tabstop=4 shiftwidth=4 softtabstop=4
+au FileType ps1 setl tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 
 au FileType python setl shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 autoindent
 "au BufNewFile,BufRead *.pgsql set filetype=plpgsql
@@ -119,7 +123,18 @@ augroup markdown
     au Filetype ghmarkdown setl shiftwidth=4 tabstop=4 smarttab expandtab
 augroup END
 
-call pathogen#infect()
-call pathogen#helptags()
-
 let g:sql_type_default = 'plsql'
+
+
+function SetEndLines()
+    let save_cursor = getpos(".")
+    :silent! $-4,$s#\($\n\s*\)*\%$#\r\r\r#
+    call setpos('.', save_cursor)
+endfunction
+
+au BufWritePre disqus_links.txt call SetEndLines()
+
+command W w
+
+imap <C-v> <C-r>*
+imap <A-v> "<C-r>*"
